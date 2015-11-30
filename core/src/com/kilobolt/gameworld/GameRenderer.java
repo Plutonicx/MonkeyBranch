@@ -119,7 +119,9 @@ public class GameRenderer {
 
     private void drawVines() {
         shapeRenderer.setColor(Color.GREEN);
-        shapeRenderer.rectLine(vine1.getVine().getVertices()[0], vine1.getVine().getVertices()[1], vine1.getVine().getVertices()[2], vine1.getVine().getVertices()[3], 3);
+        shapeRenderer.rectLine(vine1.getVine().getTransformedVertices()[0], vine1.getVine().getTransformedVertices()[1], vine1.getVine().getTransformedVertices()[2], vine1.getVine().getTransformedVertices()[3], 3);
+
+        //System.out.println("co-ordinates are: " + Float.toString(vine1.getVine().getTransformedVertices()[0]) + ", " + Float.toString(vine1.getVine().getTransformedVertices()[1]));
     }
 
     private void drawSkulls() {

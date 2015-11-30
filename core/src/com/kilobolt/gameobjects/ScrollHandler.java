@@ -15,6 +15,7 @@ public class ScrollHandler {
     private Vine vine1;
     public static final int SCROLL_SPEED = -59;
     public static final int PIPE_GAP = 49;
+    public static final int VINE_GAP = 3*PIPE_GAP;
 
     private GameWorld gameWorld;
 
@@ -24,7 +25,7 @@ public class ScrollHandler {
         backGrass = new Grass(frontGrass.getTailX(), yPos, 143, 11,
                 SCROLL_SPEED);
 
-        pipe1 = new Pipe(210, 0, 22, 60, SCROLL_SPEED, yPos);
+        pipe1 = new Pipe(500, 0, 22, 60, SCROLL_SPEED, yPos);
         pipe2 = new Pipe(pipe1.getTailX() + PIPE_GAP, 0, 22, 70, SCROLL_SPEED,
                 yPos);
         pipe3 = new Pipe(pipe2.getTailX() + PIPE_GAP, 0, 22, 60, SCROLL_SPEED,
@@ -55,6 +56,7 @@ public class ScrollHandler {
         pipe1.update(delta);
         pipe2.update(delta);
         pipe3.update(delta);
+        vine1.update(delta);
 
         // Check if any of the pipes are scrolled left,
         // and reset accordingly
@@ -68,7 +70,7 @@ public class ScrollHandler {
         }
 
         if (vine1.isScrolledLeft()) {
-            vine1.reset(vine1.getTailX() + PIPE_GAP);
+            vine1.reset(vine1.getTailX() + 3*PIPE_GAP);
         }
 
         // Same with grass
