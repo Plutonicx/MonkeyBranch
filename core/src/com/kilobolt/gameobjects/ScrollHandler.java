@@ -12,7 +12,7 @@ public class ScrollHandler {
 
     private Grass frontGrass, backGrass;
     private Pipe pipe1, pipe2, pipe3;
-    private Vine vine1;
+    private Vine vine1, vine2, vine3;
     public static final int SCROLL_SPEED = -59;
     public static final int PIPE_GAP = 49;
     public static final int VINE_GAP = 3*PIPE_GAP;
@@ -31,6 +31,8 @@ public class ScrollHandler {
         pipe3 = new Pipe(pipe2.getTailX() + PIPE_GAP, 0, 22, 60, SCROLL_SPEED,
                 yPos);
         vine1 = new Vine(210, 0, 2, 60, SCROLL_SPEED, yPos);
+        vine2 = new Vine(210 + PIPE_GAP, 0, 2, 60, SCROLL_SPEED, yPos);
+        vine3 = new Vine(210 + 2*PIPE_GAP, 0, 2, 60, SCROLL_SPEED, yPos);
     }
 
     public void updateReady(float delta) {
@@ -57,6 +59,8 @@ public class ScrollHandler {
         pipe2.update(delta);
         pipe3.update(delta);
         vine1.update(delta);
+        vine2.update(delta);
+        vine3.update(delta);
 
         // Check if any of the pipes are scrolled left,
         // and reset accordingly
@@ -71,6 +75,10 @@ public class ScrollHandler {
 
         if (vine1.isScrolledLeft()) {
             vine1.reset(vine1.getTailX() + 3*PIPE_GAP);
+        } else if (vine2.isScrolledLeft()) {
+            vine2.reset(vine2.getTailX() + 3*PIPE_GAP);
+        } else if (vine3.isScrolledLeft()) {
+            vine3.reset(vine3.getTailX() + 3*PIPE_GAP);
         }
 
         // Same with grass
@@ -145,6 +153,14 @@ public class ScrollHandler {
 
     public Vine getVine1() {
         return vine1;
+    }
+
+    public Vine getVine2() {
+        return vine2;
+    }
+
+    public Vine getVine3() {
+        return vine3;
     }
 
     public void onRestart() {

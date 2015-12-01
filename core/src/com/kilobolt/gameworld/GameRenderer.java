@@ -47,7 +47,7 @@ public class GameRenderer {
     private ScrollHandler scroller;
     private Grass frontGrass, backGrass;
     private Pipe pipe1, pipe2, pipe3;
-    private Vine vine1;
+    private Vine vine1, vine2, vine3;
 
     // Game Assets
     private TextureRegion bg, grass, birdMid, skullUp, skullDown, bar;
@@ -97,6 +97,8 @@ public class GameRenderer {
         pipe2 = scroller.getPipe2();
         pipe3 = scroller.getPipe3();
         vine1 = scroller.getVine1();
+        vine2 = scroller.getVine2();
+        vine3 = scroller.getVine3();
     }
 
     private void initAssets() {
@@ -120,7 +122,8 @@ public class GameRenderer {
     private void drawVines() {
         shapeRenderer.setColor(Color.GREEN);
         shapeRenderer.rectLine(vine1.getVine().getTransformedVertices()[0], vine1.getVine().getTransformedVertices()[1], vine1.getVine().getTransformedVertices()[2], vine1.getVine().getTransformedVertices()[3], 3);
-
+        shapeRenderer.rectLine(vine2.getVine().getTransformedVertices()[0], vine2.getVine().getTransformedVertices()[1], vine2.getVine().getTransformedVertices()[2], vine2.getVine().getTransformedVertices()[3], 3);
+        shapeRenderer.rectLine(vine3.getVine().getTransformedVertices()[0], vine3.getVine().getTransformedVertices()[1], vine3.getVine().getTransformedVertices()[2], vine3.getVine().getTransformedVertices()[3], 3);
         //System.out.println("co-ordinates are: " + Float.toString(vine1.getVine().getTransformedVertices()[0]) + ", " + Float.toString(vine1.getVine().getTransformedVertices()[1]));
     }
 
